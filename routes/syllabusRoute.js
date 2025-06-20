@@ -12,7 +12,7 @@ console.log("✅ /api/syllabus/elaborate route loaded");
 
 
 
-router.post("/elaborate",  upload.any(), async (req, res) => {
+router.post("/elaborate",  upload.single("file"), async (req, res) => {
   try {
     // console.log("Received request to elaborate syllabus");
     let rawText = req.body.syllabusText;

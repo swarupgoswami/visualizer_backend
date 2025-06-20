@@ -1,9 +1,9 @@
 import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf.js";
 
 export async function extractTextFromPdf(buffer) {
-  const loadingTask = pdfjsLib.getDocument({ data: buffer });
+  const loadingTask = pdfjsLib.default.getDocument({ data: buffer }); // 👈 fix here
   const pdf = await loadingTask.promise;
-  console.log(`📄 PDF loaded: ${pdf.numPages} pages`) ;
+  console.log(`📄 PDF loaded: ${pdf.numPages} pages`);
 
   let fullText = "";
 
@@ -13,7 +13,9 @@ export async function extractTextFromPdf(buffer) {
     const pageText = content.items.map(item => item.str).join(" ");
     fullText += pageText + "\n";
   }
-  console.log("📄 Extracted PDF Text:", fullText.slice(0, 300)); // show first 300 chars
+
+  console.log("📄 Extracted PDF Text:", fullText.slice(0, 300));
   return fullText;
 }
+
 
