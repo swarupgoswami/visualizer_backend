@@ -1,5 +1,11 @@
 import fetch from "node-fetch";
-const GEMINI_API_KEY =process.env.GEMINI_API_KEY;
+import dotenv from"dotenv";
+dotenv.config();
+
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+
+console.log("gemini key is",GEMINI_API_KEY);
+
 
 export async function askGemini(prompt) {
   const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite-preview-06-17:generateContent?key=${GEMINI_API_KEY}`, {
