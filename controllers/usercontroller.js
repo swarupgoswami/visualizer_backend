@@ -4,7 +4,23 @@ import User from "../models/User.js";
 // Create user (no auth)
 export const createUser = async (req, res) => {
   try {
-    const { civicId, name, email, password } = req.body;
+    const { name, email , picture, civicId, role, school, company, year, dept } = req.body;
+
+    if (!name || !email || !role) {
+      return res.status(400).json({ error: "Name, email, and role are required." });
+    }
+
+    if (role === "student") {
+      if (!school || !dept || !year) {
+        return res.status(400).json({ error: "Students must provide school, dept, and year." });
+      }
+    }
+
+    if (role === "professional") {
+      if (!company) {
+        return res.status(400).json({ error: "Professionals must provide company." });
+      }
+    }
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -12,10 +28,15 @@ export const createUser = async (req, res) => {
     }
 
     const newUser = new User({
-      civicId,
-      name,
+      name, 
       email,
-      password,
+      picture, 
+      civicId, 
+      role, 
+      school, 
+      company, 
+      year, 
+      dept,
       createdAt: new Date()
     });
 
