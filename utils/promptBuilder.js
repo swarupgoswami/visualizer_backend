@@ -28,3 +28,14 @@ Format:
 ]
 `;
 }
+
+export function buildExplanation (sub, topic) {
+  return `
+You are given the following data about a subject and a topic:
+
+Subject: ${sub}
+Topic: ${topic}
+
+Prepare a summary of the given topic to teach it to someone of a similar knowledge level. You are to provide with only the summarized content and nothing else at all, no pleasantries or greetings or goodbyes or anything.
+`;
+}
