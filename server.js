@@ -15,9 +15,9 @@ import userRoutes from "./routes/userRoutes.js";
 // import uploadRoutes from "./routes/uploadRoutes.js";
 import nodeRoutes from "./routes/nodeRoutes.js";
 // import threadRoutes from "./routes/";
-import flashcardRoutes from "./routes/flashcardsRoutes.js";
-import analogyRoutes from "./routes/analogyRoutes.js";
-import threadRoutes from "./routes/threadRoutes.js";
+// import flashcardRoutes from "./routes/flashcardsRoutes.js";
+// import analogyRoutes from "./routes/analogyRoutes.js";
+// import threadRoutes from "./routes/threadRoutes.js";
 import treeRoutes from "./routes/treeRoutes.js";
 
 import syllabusRoute from "./routes/syllabusRoute.js";
@@ -38,9 +38,10 @@ app.use("/api/users", userRoutes);
 app.use("/api/tree", treeRoutes);
 
 app.use("/api/nodes", nodeRoutes);
-app.use("/api/threads", threadRoutes);
-app.use("/api/flashcards", flashcardRoutes);
-app.use("/api/analogy", analogyRoutes);
+// app.use("/api/update-relationships",nodeRoutes );
+// app.use("/api/threads", threadRoutes);
+// app.use("/api/flashcards", flashcardRoutes);
+// app.use("/api/analogy", analogyRoutes);
 
 app.use( (req, res) => {
   res.status(404).json({ message: "Route not found", url: req.originalUrl });

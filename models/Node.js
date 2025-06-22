@@ -11,6 +11,11 @@ const nodeSchema = new mongoose.Schema({
     ref: "Node",
     default: null
   },
+  children: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Node",
+    default: []
+  }],
   title: String,
   content: String,
   metadata: {

@@ -5,7 +5,18 @@ const treeSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Subject"
   },
+  parentId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Tree",
+    default: null
+  },
+  children: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Tree",
+    default: []
+  }],
   title: String,
+  content: String,
   createdAt: {
     type: Date,
     default: Date.now
