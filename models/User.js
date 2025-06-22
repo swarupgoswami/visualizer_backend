@@ -1,9 +1,15 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-  civicId: String,
   name: String,
-  email: String,
+    picture: String,
+    email: String,
+    civicId: String,
+    role: String,
+    school: String,
+    company: String,
+    year: String,
+    dept: String,
   createdAt: {
     type: Date,
     default: Date.now

@@ -38,17 +38,16 @@ app.use("/api/users", userRoutes);
 app.use("/api/tree", treeRoutes);
 
 app.use("/api/nodes", nodeRoutes);
-// app.use("/api/update-relationships",nodeRoutes );
-// app.use("/api/threads", threadRoutes);
-// app.use("/api/flashcards", flashcardRoutes);
-// app.use("/api/analogy", analogyRoutes);
+app.use("/api/threads", threadRoutes);
+app.use("/api/flashcards", flashcardRoutes);
+app.use("/api/analogy", analogyRoutes);
 
 app.use( (req, res) => {
   res.status(404).json({ message: "Route not found", url: req.originalUrl });
 });
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
